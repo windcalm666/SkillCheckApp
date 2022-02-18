@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.themeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>新規登録</title>
+	</head>
+	<body>
+		<div class="form-box">
+			<h2>ユーザー登録</h2>
+			<form th:object="${signupForm}" method="post" th:action="@{/user/signup}">
+				<div>
+					<label for="userId" th:text="#{userId}"></label>
+					<input type="text" th:field="*{userId}"/>
+					<div th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></div>
+				</div>
+				<div>
+					<label for="password" th:text="#{password}"></label>
+					<input type="text" th:field="*{password}"/>
+					<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+				</div>
+				<div>
+					<label for="userName" th:text="#{userName}"></label>
+					<input type="text" th:field="*{userName}"/>
+					<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+				</div>
+				<div>
+					<label for="age" th:text="#{age}"></label>
+					<input type="text" th:field="*{age}"/>
+					<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+				</div>
+				<div>
+					<label for="birthday" th:text="#{birthday}"></label>
+					<input type="text" th:field="*{birthday}"/>
+					<div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></div>
+				</div>
+				<div>
+					<div th:each="item:${genderMap}">
+					<input type="radio" th:value="${item.value}" th:field="*{gender}">
+					<label th:text="${item.key}"></label>
+					</div>
+					<div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+				</div>
+				<input type="submit" value="新規登録">
+			</form>
+		</div>
+	</body>
+</html>

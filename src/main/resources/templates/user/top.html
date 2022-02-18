@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>トップページ</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>ユーザーID</th>
+				<th>氏名</th>
+				<th>誕生日</th>
+				<th>年齢</th>
+				<th>性別</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item:${userList}">
+				<td th:text="${item.userId}"></td>
+				<td th:text="${item.userName}"></td>
+				<td th:text="${item.birthday}"></td>
+				<td th:text="${item.age}"></td>
+				<td th:text="${item.gender == 1} ? '男性':'女性'"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
