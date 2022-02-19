@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー詳細</title>
+<link rel="stylesheet" th:href="@{/css/user/user.css}">
 </head>
+<header>
+	<div class="header-nav">
+		<h1>SkillCheckApp</h1>
+		<div class="logout-block">
+			<form method="post" th:action=@{/logout}>
+				<button type="submit">ログアウト</button>
+			</form>
+		</div>
+	</div>
+</header>
 <body>
 	<div>
 		<h1>ユーザー情報</h1>
@@ -11,7 +22,7 @@
 	<form id="user-detail-form" method="post" th:action="@{/user/detail}"
 	th:object="${userDetailForm}">
 	<input type="hidden" th:field="*{userId}">
-		<table>
+		<table class="user-list">
 			<tbody>
 				<tr>
 					<th>ユーザーID</th>
@@ -43,6 +54,7 @@
 			<button type="submit" name="update">更新</button>
 			<button type="submit" name="delete">削除</button>
 		</div>
+		<a th:href="@{/user/top}">戻る</a>
 	</form>
 </body>
 </html>

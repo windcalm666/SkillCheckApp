@@ -48,10 +48,4 @@ public class UserController {
 		
 		return "/user/top";
 	}
-	
-	/** ログイン画面の表示 */
-	@GetMapping("/login")
-	public String getLogin() {
-		return "login/login";
-	}
 }

@@ -3,10 +3,26 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>ログイン</title>
+		<link rel="stylesheet" th:href="@{/css/user/user.css}">
 	</head>
+	<header>
+	<div class="header-nav">
+		<h1>SkillCheckApp</h1>
+		<div class="logout-block">
+			<form method="post" th:action=@{/logout}>
+				<button type="submit">ログアウト</button>
+			</form>
+		</div>
+	</div>
+	</header>
 	<body>
+		<h2>ログイン</h2>
 		<div class="form-box">
 			<form method="post" th:action="@{/login}" class="login-form">
+				<p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null"
+				th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="danger">
+					ログインエラーメッセージ
+				</p>
 				<div>
 					<label for="userId"></label>
 					<input type="text" name="userId" placeholder="ユーザーID">

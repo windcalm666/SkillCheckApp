@@ -21,7 +21,7 @@ INSERT INTO m_user (
 )
 VALUES(
 	'system@co.jp',
-	'password',
+	'"$2a$10$G8m7Gg1mXsEWT/EAwiU4XO4ZRT3gTnecPpUJk.EoJmQQ8QAsJ2yMO"',/* password */
 	'Admin',
 	'2000-01-01',
 	21,
@@ -29,7 +29,7 @@ VALUES(
 	'ROLE_ADMIN'
 ),(
 	'user@co.jp',
-	'password',
+	'"$2a$10$G8m7Gg1mXsEWT/EAwiU4XO4ZRT3gTnecPpUJk.EoJmQQ8QAsJ2yMO"',/* password */
 	'User1',
 	'2000-01-01',
 	21,

@@ -20,4 +20,6 @@ public interface UserMapper {
 			@Param("password") String password, @Param("userName") String userName);
 	
 	public void deleteOne(@Param("userId") String userId);
+	
+	public MUser findLoginUser(String userId);
 }
