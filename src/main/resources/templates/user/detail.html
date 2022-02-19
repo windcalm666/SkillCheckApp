@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー詳細</title>
+</head>
+<body>
+	<div>
+		<h1>ユーザー情報</h1>
+	</div>
+	<form id="user-detail-form" method="post" th:action="@{/user/detail}"
+	th:object="${userDetailForm}">
+	<input type="hidden" th:field="*{userId}">
+		<table>
+			<tbody>
+				<tr>
+					<th>ユーザーID</th>
+					<td th:text="*{userId}"></td>
+				</tr>
+				<tr>
+					<th>パスワード</th>
+					<td><input type="text" th:field="*{password}"/></td>
+				</tr>
+				<tr>
+					<th>氏名</th>
+					<td><input type="text" th:field="*{userName}"/></td>
+				</tr>
+				<tr>
+					<th>誕生日</th>
+					<td th:text="*{#dates.format(birthday,'YYYY/MM/dd')}"></td>
+				</tr>
+				<tr>
+					<th>年齢</th>
+					<td th:text="*{age}"></td>
+				</tr>
+				<tr>
+					<th>性別</th>
+					<td th:text="*{gender == 1 ?'男性':'女性'}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<button type="submit" name="update">更新</button>
+			<button type="submit" name="delete">削除</button>
+		</div>
+	</form>
+</body>
+</html>

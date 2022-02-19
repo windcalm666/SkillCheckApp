@@ -5,6 +5,21 @@
 <title>トップページ</title>
 </head>
 <body>
+	<h1>ユーザー一覧画面</h1>
+	<div>
+		<form id="user-search-form" method="post" th:action="@{/user/top}" 
+		th:object="${userListForm}">
+			<div>
+				<label for="userId">ユーザーID</label>
+				<input type="text" th:field="*{userId}">
+			</div>
+			<div>
+				<label for="userName">氏名</label>
+				<input type="text" th:field="*{userName}">
+			</div>
+			<button type="submit">検索</button>
+		</form>
+	</div>
 	<table>
 		<thead>
 			<tr>
@@ -13,15 +28,19 @@
 				<th>誕生日</th>
 				<th>年齢</th>
 				<th>性別</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="item:${userList}">
 				<td th:text="${item.userId}"></td>
 				<td th:text="${item.userName}"></td>
-				<td th:text="${item.birthday}"></td>
+				<td th:text="${#dates.format(item.birthday,'YYYY/MM/dd')}"></td>
 				<td th:text="${item.age}"></td>
 				<td th:text="${item.gender == 1} ? '男性':'女性'"></td>
+				<td>
+					<a th:href="@{'/user/detail/' + ${item.userId}}">詳細</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
